@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Random Word</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <style>
+        .numbers{
+            text-align: center;
+        }
+        .attempt{
+            text-align: center;
+        }
+        .generate{
+         width: 100px;
+         height: 100px;
+
+        }
+        
+            </style>
+    <div>
+        <h2 class = 'attempt'>Random word attempt # {{request.session.number}}</h2>
+        <div style = 'border: 2px solid black' class = 'numbers'>
+            <h2>{{request.session.random_word}}</h2>
+        </div>
+        <form action = '/generate' method = 'post'>
+            {% csrf_token %}
+        <input class = 'generate' type = 'submit' value = "Generate">
+        </form>
+    </div>
+</body>
+</html>
